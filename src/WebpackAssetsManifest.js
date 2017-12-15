@@ -43,6 +43,7 @@ class WebpackAssetsManifest extends EventEmitter
       publicPath: null,
       customize: null,
       contextRelativeKeys: false,
+      template:"{manifest}"
     };
 
     this.options = pick(
@@ -390,7 +391,7 @@ class WebpackAssetsManifest extends EventEmitter
       () => {
         fs.writeFile(
           output,
-          this.toString(),
+          this.options.replace("{manifest}",this.toString()),
           () => {
             callback();
           }
