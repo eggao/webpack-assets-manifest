@@ -391,7 +391,7 @@ class WebpackAssetsManifest extends EventEmitter
       () => {
         fs.writeFile(
           output,
-          this.options.replace("{manifest}",this.toString()),
+          this.options.template.replace("{manifest}",this.toString()),
           () => {
             callback();
           }
